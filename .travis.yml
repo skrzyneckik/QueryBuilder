@@ -1,11 +1,17 @@
+# Disabling sudo moves build to the Container Based Infrastructure on Travis CI
+sudo: false
+
 language: java
 jdk: oraclejdk7
+
+before_install:
+  - pip install --user codecov
 
 script:
   - ./gradlew build jacocoTestReport
 
 after_success:
-- bash <(curl -s https://codecov.io/bash)
+- codecov
 
 notifications:
   email:
