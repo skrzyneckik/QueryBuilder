@@ -19,3 +19,21 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
 }
+
+afterEvaluate {
+    jacocoTestReport {
+        def coverageSourceDirs = ['src/main/java']
+        reports {
+            xml.enabled false
+            csv.enabled false
+            html.destination "${buildDir}/reports/jacocoHtml"
+        }
+        sourceDirectories = files(coverageSourceDirs)
+        classDirectories = fileTree(
+                dir: "${project.buildDir}/classes/main",
+                excludes: [
+                        //whatever here like JavaConfig etc. in /src/main/java
+                ]
+        )
+    }
+}
