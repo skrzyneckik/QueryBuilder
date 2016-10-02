@@ -3,15 +3,14 @@ apply plugin: 'jacoco'
 
 jacoco {
     // See https://github.com/jacoco/jacoco/releases
-    toolVersion = '0.7.5.201505241946'
-    reportsDir = file("$buildDir/customJacocoReportDir")
+    toolVersion = '0.7.7.201606060606'
 }
 
 jacocoTestReport {
     reports {
         xml.enabled true
         csv.enabled true
-        html.destination "${buildDir}/reports/jacoco/test"
+        html.enabled true
     }
 }
 

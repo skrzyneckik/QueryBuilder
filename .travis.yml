@@ -8,7 +8,7 @@ before_install:
   - pip install --user codecov
 
 script:
-  - ./gradlew build jacocoTestReport
+  - ./gradlew build jacocoTestReport -PdisablePreDex
 
 after_success:
 - codecov
